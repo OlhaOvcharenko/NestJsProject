@@ -12,31 +12,32 @@ export class ProductsController {
 
     @Get('/')
     getAll(): any {
-        return this.productsService.getAll();
+      return this.productsService.getAll();
     }
 
     @Get('/:id')
-        getById(@Param('id', new ParseUUIDPipe()) id: string) {
+      getById(@Param('id', new ParseUUIDPipe()) id: string) {
 
-        const prod = this.productsService.getById(id);
-        if (!prod) throw new NotFoundException('Product not found');
-          return prod;
+      const prod = this.productsService.getById(id);
+      if (!prod) throw new NotFoundException('Product not found');
+        return prod;
     }
 
 
     @Delete('/:id')
-        deleteById(@Param('id', new ParseUUIDPipe()) id: string) {
+      deleteById(@Param('id', new ParseUUIDPipe()) id: string) {
 
-        if (!this.productsService.getById(id))
-          throw new NotFoundException('Product not found');
+      if (!this.productsService.getById(id))
+        throw new NotFoundException('Product not found');
 
-        this.productsService.deleteById(id);
-        return { success: true };
+      this.productsService.deleteById(id);
+      return { success: true };
     }
 
     @Post('/')
-       create(@Body() productData: CreateProductDTO) {
-        return this.productsService.create(productData);
+      create(@Body() productData: CreateProductDTO) {
+      
+      return this.productsService.create(productData);
     }
 
     @Put('/:id')

@@ -20,4 +20,4 @@ export class LoggerInterceptor implements NestInterceptor {
         }),
       );
     }
-  }
+}

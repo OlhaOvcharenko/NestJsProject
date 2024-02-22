@@ -16,7 +16,7 @@ export class ProductsService {
     db.products = db.products.filter((p) => p.id !== id);
   }
 
-  public create(productData: Omit< Product, 'id'>): Product {
+  public create(productData: Omit<Product, 'id'>): Product {
     const newProduct = { ...productData, id: uuidv4() };
     db.products.push(newProduct);
     return newProduct;

@@ -7,8 +7,6 @@ export class UpdateProductDTO {
     name: string;
 
     @IsNotEmpty()
-    @IsInt()
-    @Min(0)
     price: number;
 
     @IsString()

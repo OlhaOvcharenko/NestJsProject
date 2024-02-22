@@ -14,8 +14,6 @@ export class CreateProductDTO {
   name: string;
 
   @IsNotEmpty()
-  @IsInt()
-  @Min(0)
   price: number;
 
   @Transform(({ value }) => (Array.isArray(value) ? value.join(', ') : ''))
