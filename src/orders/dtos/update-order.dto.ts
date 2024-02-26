@@ -3,7 +3,7 @@ import {
     IsString,
     Length,
 } from 'class-validator';
-import { Product } from 'src/db';
+import { Product } from '@prisma/client';
   
 export class UpdateOrderDTO {
   
