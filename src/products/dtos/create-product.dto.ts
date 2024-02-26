@@ -19,6 +19,6 @@ export class CreateProductDTO {
   @Min(0)
   price: number;
 
-  @Transform(({ value }) => (Array.isArray(value) ? value.join(', ') : 'dupa dupa'))
+  @Transform(({ value }) => (Array.isArray(value) ? value.join(', ') : ''))
   description: string;
 }
