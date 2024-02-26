@@ -5,6 +5,7 @@ import {
   IsString,
   Length,
   Min,
+  isInt,
 } from 'class-validator';
 
 export class CreateProductDTO {
@@ -14,8 +15,10 @@ export class CreateProductDTO {
   name: string;
 
   @IsNotEmpty()
+  @IsInt()
+  @Min(0)
   price: number;
 
-  @Transform(({ value }) => (Array.isArray(value) ? value.join(', ') : ''))
+  @Transform(({ value }) => (Array.isArray(value) ? value.join(', ') : 'dupa dupa'))
   description: string;
 }
