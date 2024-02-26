@@ -3,7 +3,7 @@ import {
   IsString,
   Length,
 } from 'class-validator';
-import { Product } from 'src/db';
+import { Product } from '@prisma/client';;
 
 export class CreateOrderDTO {
 
@@ -17,6 +17,6 @@ export class CreateOrderDTO {
 
   @IsNotEmpty()
   @IsString()
-  @Length(10, 20)
+  @Length(10, 25)
   address: string;
 }
