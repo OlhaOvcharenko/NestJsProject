@@ -13,12 +13,7 @@ export class UpdateOrderDTO {
   productId: string;
 
   @IsNotEmpty()
+  //@IsUUID()
   @IsString()
-  @Length(5, 20)
-  client: string;
-
-  @IsNotEmpty()
-  @IsString()
-  @Length(10, 20)
-  address: string;
+  clientId: string;
 }

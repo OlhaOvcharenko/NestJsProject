@@ -14,12 +14,7 @@ export class CreateOrderDTO {
   productId: string;
 
   @IsNotEmpty()
+  //@IsUUID()
   @IsString()
-  @Length(5, 20)
-  client: string;
-
-  @IsNotEmpty()
-  @IsString()
-  @Length(10, 25)
-  address: string;
+  clientId: string;
 }
