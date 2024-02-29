@@ -1,14 +1,16 @@
 import {
     IsNotEmpty,
     IsString,
+    IsUUID,
     Length,
 } from 'class-validator';
-import { Product } from '@prisma/client';
   
 export class UpdateOrderDTO {
   
+  @IsNotEmpty()
+  @IsUUID()
   @IsString()
-  productId: Product['id'];
+  productId: string;
 
   @IsNotEmpty()
   @IsString()
