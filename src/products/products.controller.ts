@@ -10,6 +10,18 @@ import { NotFoundException } from '@nestjs/common';
 export class ProductsController {
     constructor(private productsService: ProductsService) {}
 
+    @Get('/extended')
+    getAllExtended(): any {
+      return this.productsService.getAllExtended();
+    }
+
+    @Get('/extended/:id')
+    async getExtendedById(@Param('id', new ParseUUIDPipe()) id: string) {
+      const prod = await this.productsService.getExtendedById(id);
+      if (!prod) throw new NotFoundException('Product not found');
+      return prod;
+    }
+
     @Get('/')
     async getAll() {
       return this.productsService.getAll();

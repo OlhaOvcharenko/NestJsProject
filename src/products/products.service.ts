@@ -7,6 +7,19 @@ export class ProductsService {
 
   constructor(private prismaService: PrismaService) {}
 
+  public getAllExtended(): Promise<Product[]> {
+    return this.prismaService.product.findMany({
+      include: { orders: true },
+    });
+  }
+  
+  public getExtendedById(id: Product['id']): Promise<Product | null> {
+    return this.prismaService.product.findUnique({
+      where: { id },
+      include: { orders: true },
+    });
+  }
+
   public getAll(): Promise<Product[]> {
     return this.prismaService.product.findMany();
   }
